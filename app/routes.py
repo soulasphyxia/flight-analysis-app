@@ -1,16 +1,23 @@
+# -*- coding: utf-8 -*-
 from app import app
 from flask import render_template,request
 import streamlit as st
+from app import db
 from app import analysis
+from models import Flights
 
 @app.route("/api/data",methods=['GET'])
 def index():
-    current = request.args.get("current")
-    target = request.args.get("target")
+    current = str(request.args.get("current"))
+    target = str(request.args.get("target"))
+    print(current, target)
     
-    cost = analysis.get_num()
+    flight = db.session.query(Flights).filter_by(departure_city = current,destination_city = target).first()
+    print(type(flight))
     return {
-        "data": cost
+        "departure_city": flight.departure_city,
+        "destination_city": flight.destination_city,
+        "price": flight.price
     }
 
 
