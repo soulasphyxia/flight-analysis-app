@@ -1,3 +1,5 @@
-*.psd filter=lfs diff=lfs merge=lfs -text
-*.so filter=lfs diff=lfs merge=lfs -text
+venv/lib/python3.11/site-packages/llvmlite/binding/libllvmlite.so filter=lfs diff=lfs merge=lfs -text
+venv/lib/python3.11/site-packages/xgboost/lib/libxgboost.so filter=lfs diff=lfs merge=lfs -text
 venv/lib/python3.11/site-packages/kaleido/executable/bin/kaleido filter=lfs diff=lfs merge=lfs -text
+venv/** filter=lfs diff=lfs merge=lfs -text
+*.so filter=lfs diff=lfs merge=lfs -text
