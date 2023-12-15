@@ -3,30 +3,29 @@ import numpy as np
 import pandas as pd
 import time
 import datetime
+import requests
 
 
 def main():
 
     st.markdown("# СЕРЕГА ПОЛЕТЕЛИ 🎈")
-
+    
     col1, col2, col3 = st.columns(3, gap="small")
 
     with col1:
         dep_city = st.selectbox(
         'Укажите свой город отправления',
-        ('Томск', 'Новосибирск'))
+        ('Banglore', 'Новосибирск'))
 
         st.write('Город отправления:', dep_city)
 
     with col2:
         dest_city = st.selectbox(
             "Укажите город назначения:",
-            ("Санкт-Петербург", "Москва", "Хабаровск", 
-            "Иркутск", "Благовещенск", "Нерюнгри", "Мирный",
-            "Южно-Сахалинск", "Петропавловск-Камчатский")
+            ('New Delhi','sfsfs')
         )
         st.write('Город отправления:', dest_city)
-
+    if st.button("НАЖМИ МЕНЯ") : btn_on_click(dep_city, dest_city) 
     with col3:
         
         sub_col1, sub_col2 = st.columns(2, gap="small")
@@ -43,39 +42,16 @@ def main():
                 z2 = z1
                 st.write("Все красиво")
 
+    
 
-    st.button("НАЖМИ МЕНЯ")
 
-    a = [1, 2, 3, 4]
-    st.write(*a)
-
-    x = st.slider('x')  # 👈 this is a widget
-    st.write(x, 'squared is', x)
-
-    if x <= 1:
-        chart_data = pd.DataFrame(
-            np.random.randn(20, 4),
-            columns=['a', 'b', 'c', 'd'])
-    else:
-        chart_data = pd.DataFrame(
-            np.random.randn(x, 4),
-            columns=['a', 'b', 'c', 'd'])
-
-    st.line_chart(chart_data)
-
-    st.sidebar.markdown("# Main page 🎈")
-
-def counter():
-    latest_iteration = st.empty()
-    bar = st.progress(0)
-
-    for i in range(100):
-        # Update the progress bar with each iteration.
-        latest_iteration.text(f'Iteration {i+1}')
-        bar.progress(i + 1)
-        time.sleep(0.1)
-
+#http://127.0.0.1:5000/api/data?dep=Banglore&dest=New Delhi&airline=IndiGo&date=2024-03-14&info=no-info
+def btn_on_click(dep, dest):
+    url = "http://127.0.0.1:5000/api/data"
+    response = requests.get(url)
+    data = response.json()
+    print(data)
+    st.write(data["data"])
 
 if __name__ == "__main__":
     main()
-    counter()
