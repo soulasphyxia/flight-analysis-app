@@ -89,7 +89,7 @@ def button_click(city1, city2, date, cont):
     '''Кнопка нужна для того, чтобы отправлять информацию 
     о выбранном времени вылета/прилета в базу данных.'''
    
-    url = f'http://127.0.0.1:5000/api/data?dep={city1}&dest={city2}&date={date}&info=no-info'
+    url = f'https://flight-analysis-app-production.up.railway.app/api/data?dep={city1}&dest={city2}&date={date}&info=no-info'
 
     response = requests.get(url)
     
