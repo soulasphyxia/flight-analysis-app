@@ -7,7 +7,7 @@
 ### 2. Создать виртуальное окружение:
 `python -m venv venv`
 ### 3. Активировать виртуальное окружение venv.
-* `source /venv/bin/activate` для Linux
+* `source /venv/bin/activate` для Linux \
 * `.\venv\Scripts\activate` для Windows
 
 ### 4. Установить необходимые зависимости:
