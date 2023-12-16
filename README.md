@@ -13,9 +13,9 @@
 ### 4. Установить необходимые зависимости:
 `pip install -r requirements.txt`
 ### 5. Открыть 2 окна терминала и запустить 2 локальных сервера:
-`flask run` для запуска backend API\
+* `flask run` для запуска backend API\
 \
-`streamlit run ./mainpage.py` для запуска frontend сервера
+* `streamlit run ./mainpage.py` для запуска frontend сервера
 
 
 ## Описание:
