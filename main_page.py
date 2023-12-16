@@ -70,7 +70,7 @@ def create_div(index, note, date):
                 price = note['price'] * 1.08
                 st.write(f"Цена: {round(price,2)} ₽")
                 #Разные
-                if st.form_submit_button(f"Купить билет: {index}"):
+                if st.form_submit_button(f"Купить билет:"):
                     buy_ticket()
             with sub_col2:
                 company = note["airline"]
