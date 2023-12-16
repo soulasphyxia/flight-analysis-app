@@ -7,13 +7,14 @@
 ### 2. Создать виртуальное окружение:
 `python -m venv venv`
 ### 3. Активировать виртуальное окружение venv.
-* `source /venv/bin/activate` для Linux\
+* `source /venv/bin/activate` для Linux
 * `.\venv\Scripts\activate` для Windows
 
 ### 4. Установить необходимые зависимости:
 `pip install -r requirements.txt`
 ### 5. Открыть 2 окна терминала и запустить 2 локальных сервера:
-`flask run` для запуска backend API\\
+`flask run` для запуска backend API\
+\
 `streamlit run ./mainpage.py` для запуска frontend сервера
 
 
