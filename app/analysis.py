@@ -1,4 +1,3 @@
-from random import randint
 import pandas as pd
 from pycaret.regression import *
 import numpy
