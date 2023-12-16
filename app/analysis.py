@@ -6,7 +6,7 @@ import numpy
 
 
 
-def get_num(airline, date, source, destination, total_stops, additional_info, route):
+def get_predict(airline, date, source, destination, total_stops, additional_info, route):
     data = {
         'Airline': [airline],
         'Date_of_Journey': [date],
