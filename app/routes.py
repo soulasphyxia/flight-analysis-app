@@ -32,5 +32,3 @@ def get_predict():
     return predict
 
 
-
-
