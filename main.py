@@ -1,4 +1,4 @@
 from app import app
 
-def create_app():
+def create():
     return app
