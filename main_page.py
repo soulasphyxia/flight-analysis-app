@@ -27,18 +27,15 @@ def main():
     # Первая колонка, в которой выбирается город вылета
     with col1:
         dep_city = st.selectbox(
-        'Укажите свой город отправления',
+        'Укажите город отправления',
         ('Banglore', 'Kolkata', 'Delhi', 'Chennai', 'Mumbai'))
-
-        st.write('Город отправления:', dep_city)
     # Вторая колонка, в которой выбирается город назначения
     with col2:
         dest_city = st.selectbox(
             "Укажите город назначения:",
             ('New Delhi', 'Banglore', 'Cochin', 'Kolkata', 'Delhi', 'Hyderabad')
         )
-        st.write('Город отправления:', dest_city)
-
+        
 
     # Контейнер для вывода вариантов полета
     cont = st.container()
