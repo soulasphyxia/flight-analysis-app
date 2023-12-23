@@ -56,8 +56,8 @@ def create_trip_info(index, trip):
             if st.form_submit_button("Оформить билеты"):
                 return
 def make_request(city1, city2, departure_date, back_date):
-    #url = f'https://flight-analysis-app-production.up.railway.app/api/data/lowestcost?dep={city1}&dest={city2}&depdate={departure_date}&backdate={back_date}&info=no-info'
-    url = f'http://127.0.0.1:5000/api/data/lowestcost?dep={city1}&dest={city2}&depdate={departure_date}&backdate={back_date}&info=no-info'
+    url = f'https://flight-analysis-app-production.up.railway.app/api/data/lowestcost?dep={city1}&dest={city2}&depdate={departure_date}&backdate={back_date}&info=no-info'
+    #url = f'http://127.0.0.1:5000/api/data/lowestcost?dep={city1}&dest={city2}&depdate={departure_date}&backdate={back_date}&info=no-info'
     response = requests.get(url)
     data = response.json()
     return data
