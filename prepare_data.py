@@ -7,4 +7,3 @@ def prepare_data(data):
     data['Date_of_Journey'] = pd.to_datetime(data['Date_of_Journey'])
     return data
     
-

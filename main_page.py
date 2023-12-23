@@ -47,13 +47,14 @@ def main():
         
         with sub_col1:
             departure_d = st.date_input("Дата вылета:", value=None, format="YYYY.MM.DD")
-            date = departure_d
-            if st.button("Найти"):
-                button_click(dep_city, dest_city, date, cont)
+            departure_date = departure_d
+        with sub_col2:
+            back_d = st.date_input("Дата вылета обратно:", value=None, format="YYYY.MM.DD")
+            back_date = back_d
+    if st.button("Найти"):
+                button_click(dep_city, dest_city, departure_date, back_date, cont)
         
-def create_div(index, note, date):
-    # Разные
-
+def create_div(index, note, departure_date, back_date):
     
     with st.form(f"Окно с билетом: {index}"):
         
@@ -64,30 +65,32 @@ def create_div(index, note, date):
             sub_col1, sub_col2 = st.columns(2, gap="medium")
 
             with sub_col1:
-                price = note['price'] * 1.08
+                price = note['price']
                 st.write(f"Цена: {round(price,2)} ₽")
                 #Разные
                 if st.form_submit_button(f"Купить билет"):
                     buy_ticket()
             with sub_col2:
-                company = note["airline"]
-                st.write(f"Авиакомпания: {company}")
+                companies = note["airlines"]
+                st.write(f"Авиакомпании: {companies}")
         with col2:
             
             sub_col1, sub_col2 = st.columns(2, gap="medium")
             
             with sub_col1:
-                st.write(f"Дата вылета: {date}")
+                st.write(f"Дата вылета: {departure_date}")
+            with sub_col2:
+                st.write(f"Дата вылета обратно: {back_date}")
 
 def buy_ticket():
     st.write("Билет куплен")
 
-def button_click(city1, city2, date, cont):
+def button_click(city1, city2, departure_date, back_date,cont):
     '''Кнопка нужна для того, чтобы отправлять информацию 
     о выбранном времени вылета/прилета в базу данных.'''
    
-    #url = f'https://flight-analysis-app-production.up.railway.app/api/data?dep={city1}&dest={city2}&date={date}&info=no-info'
-    url = f'http://127.0.0.1:5000/api/data?dep={city1}&dest={city2}&date={date}&info=no-info'
+    #url = f'https://flight-analysis-app-production.up.railway.app/api/data?dep={city1}&dest={city2}&depdate={departure_date}&backdate={back_date}&info=no-info'
+    url = f'http://127.0.0.1:5000/api/data?dep={city1}&dest={city2}&depdate={departure_date}&backdate={back_date}&info=no-info'
 
     response = requests.get(url)
     
@@ -96,7 +99,7 @@ def button_click(city1, city2, date, cont):
     with cont:
         k = 1
         for note in data['prices']:
-            create_div(k, note, date)
+            create_div(k, note, departure_date, back_date)
             k += 1
 
 

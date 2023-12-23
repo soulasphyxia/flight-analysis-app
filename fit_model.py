@@ -1,13 +1,18 @@
 import pandas as pd
 from pycaret.regression import *
-from prepare_data import prepare_data
+import sqlite3
 
-data_set =pd.read_pickle('dataset_for_model.pkl')
-data = prepare_data(data_set)
+conn = sqlite3.connect('data_base_flight.db')
+cursor = conn.cursor()
 
-models = setup(data, target ='Price')
-best = compare_models()
-tune_model = tune_model(best)
-blender = blend_models([best,tune_model])
+cursor.execute('SELECT * FROM flight_price')
 
-save_model(blender, "model_prodact")
+
+data = cursor.fetchall()
+
+conn.close()
+
+models = setup_for_model = setup(data, target ='Price',use_gpu=True,normalize = True,normalize_method='robust')
+xgbooster = create_model('xgboost')
+tune_xgb = tune_model(xgbooster,choose_better = True)
+save_model(tune_xgb, "model_prodaction")
