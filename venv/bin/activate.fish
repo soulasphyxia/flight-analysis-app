@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/soulasphyxia/prog/hackaton_web/venv"
+set -gx VIRTUAL_ENV "/home/soulasphyxia/prog/flight-analysis-app/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

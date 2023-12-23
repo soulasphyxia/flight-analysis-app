@@ -1,4 +1,4 @@
-#!/home/soulasphyxia/prog/hackaton_web/venv/bin/python3
+#!/home/soulasphyxia/prog/flight-analysis-app/venv/bin/python3
 # -*- coding: UTF-8 -*-
 from __future__ import print_function, division, absolute_import
 

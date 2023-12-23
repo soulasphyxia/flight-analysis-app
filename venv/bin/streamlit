@@ -1,4 +1,4 @@
-#!/home/soulasphyxia/prog/hackaton_web/venv/bin/python3
+#!/home/soulasphyxia/prog/flight-analysis-app/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
